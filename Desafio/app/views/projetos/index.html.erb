@@ -1,0 +1,28 @@
+<div>
+    <h1>Projetos</h1>
+    <ul>
+        <%= link_to "<button>Novo Projeto</button>".html_safe, new_projeto_path %>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome Projeto</th>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+                <th>% Completo</th>
+                <th>Atrasado</th>
+                <th></th>
+            </tr>
+            <%  @projetos.each do |projeto| %>
+                <tr>
+                    <th><%= projeto.id %></th>
+                    <th><%= projeto.nome %></th>
+                    <th><%= projeto.datainicio.strftime("%d/%m/%Y") %></th>
+                    <th><%= projeto.datafim.strftime("%d/%m/%Y") %></th>
+                    <th><%= PercentualFinalizado(projeto.atividades) %></th>
+                    <th><%= Atrasado(projeto.atividades, projeto.datafim) %></th>
+                    <th><%= link_to "<button>Editar</button>".html_safe, projeto%></th>
+                </tr>
+            <% end %>
+        </table>
+    </ul>
+</div>

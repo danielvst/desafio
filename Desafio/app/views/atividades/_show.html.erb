@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome Atividade</th>
+        <th>Data Início</th>
+        <th>Data Fim</th>
+        <th>Finalizada</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% @projeto.atividades.each do |atividade|%>
+        <tr>
+            <th><%= atividade.id %></th>
+            <th><%= atividade.nome %></th>
+            <th><%= atividade.datainicio.strftime("%d/%m/%Y") %></th>
+            <th><%= atividade.datafim.strftime("%d/%m/%Y") %></th>
+            <th><%= Finalizada(atividade.finalizada)%></th>
+            <th><%= link_to "<button>Editar</button>".html_safe, edit_projeto_atividade_path(@projeto.id,atividade) %></th>
+            <th><%= link_to "<button>Remover</button>".html_safe, projeto_atividade_path(@projeto,atividade), method: :delete, data: { confirm: "Deseja remover a atividade " + atividade.nome + "?"} %></th>
+        </tr>
+    <% end %>
+</table>

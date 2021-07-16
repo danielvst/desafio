@@ -1,0 +1,14 @@
+<div>
+    <h1><%= @projeto.nome %></h1>
+    <p>Data Início: <%= @projeto.datainicio.strftime("%d/%m/%Y")%></p>
+    <p>Data Fim: <%= @projeto.datafim.strftime("%d/%m/%Y")%></p>
+    <p>Percentual Finalizado: <%= PercentualFinalizado(@projeto.atividades)%></p>
+    <p>Atrasado: <%= Atrasado(@projeto.atividades, @projeto.datafim)%></p>
+    <%= link_to "<button>Editar</button>".html_safe, edit_projeto_path(@projeto) %>
+    <%= link_to "<button>Remover</button>".html_safe, projeto_path(@projeto), method: :delete, data: { confirm: "Deseja remover o projeto " + @projeto.nome + "?"} %>
+    <h2> Atividades </h2>
+    <%= link_to "<button>Nova Atividade</button>".html_safe, new_projeto_atividade_path(@projeto.id) %>
+    <%= render 'atividades/show' %>
+    
+    <%= link_to "<button>Voltar</button>".html_safe, :projetos %>
+</div>

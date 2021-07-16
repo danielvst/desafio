@@ -1,0 +1,21 @@
+<%= form_with model: @projeto_atividade do |form| %>
+    <div>
+        Nome:
+        <%= text_field(:atividade, :nome)%>
+    </div>
+    <div>
+        Data Início: 
+        <%= date_field(:atividade, :datainicio) %>
+    </div>
+    <div>
+        Data Fim: 
+        <%= date_field(:atividade, :datafim) %>
+    </div>
+    <div>
+        Finalizada: 
+        <%= check_box(:atividade, :finalizada)%>
+    </div>
+    <div>
+        <%= form.submit "Salvar Atividade"%>
+    </div>
+<% end %>

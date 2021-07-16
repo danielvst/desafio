@@ -1,0 +1,17 @@
+<%= form_with model: @projeto do |form| %>
+    <div>
+        Nome: 
+        <%= form.text_field :nome %>
+    </div>
+    <div>
+        Data Início: 
+        <%= date_field(:projeto,:datainicio) %>
+    </div>
+    <div>
+        Data Fim: 
+        <%= date_field(:projeto, :datafim) %>
+    </div>
+    <div>
+        <%= form.submit "Salvar Projeto"%>
+    </div>
+<% end %>
